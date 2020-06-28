@@ -69,7 +69,39 @@ struct LinesView: View {
     }
 }
 
+struct SmallLinesView: View {
+    var entry: LinesProvider.Entry
+
+    let columns = Array(repeating: GridItem(.flexible()), count: 3)
+
+    var body: some View {
+        GeometryReader { proxy in
+            LazyVGrid(columns: columns, spacing: 0) {
+                ForEach(entry.lines) { line in
+
+                    (line.statuses.first?.severity.icon ?? .unknown)
+                        .font(.largeTitle)
+                        .frame(height: proxy.size.height / ceil(CGFloat(entry.lines.count) / CGFloat(columns.count)))
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(line.color)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .padding(7)
+    }
+}
+
 @main
+struct TubeWidgetBundle: WidgetBundle {
+
+    @WidgetBundleBuilder
+    var body: some Widget {
+        TubeWidget()
+        SmallTubeWidget()
+    }
+}
+
 struct TubeWidget: Widget {
     private let kind: String = "Widget"
 
@@ -81,5 +113,20 @@ struct TubeWidget: Widget {
             .configurationDisplayName("Lines")
             .description("This is an example widget.")
             .supportedFamilies([.systemLarge])
+    }
+}
+
+
+struct SmallTubeWidget: Widget {
+    private let kind: String = "Widget"
+
+    public var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "Small Grid",
+                            provider: LinesProvider(),
+                            placeholder: EmptyView(),
+                            content: SmallLinesView.init)
+            .configurationDisplayName("Small Grid")
+            .description("This is an example widget.")
+            .supportedFamilies([.systemSmall])
     }
 }
