@@ -46,26 +46,34 @@ extension Image {
 
 struct LinesView: View {
     var entry: LinesProvider.Entry
+    let columns = Array(repeating: GridItem(.flexible()), count: 2)
+
+    var numberOfRows: Int { Int(ceil(CGFloat(entry.lines.count) / CGFloat(columns.count))) }
+    let spacing = CGFloat(2)
 
     var body: some View {
         GeometryReader { proxy in
-            VStack(spacing: 0) {
+            LazyVGrid(columns: columns, spacing: spacing) {
                 ForEach(entry.lines) { line in
 
                     HStack {
                         Text(line.name)
+                            .multilineTextAlignment(.leading)
                         Spacer(minLength: 0)
                         (line.statuses.first?.severity.icon ?? .unknown)
+                            .font(.title)
                     }
                     .padding(.horizontal)
-                    .frame(height: proxy.size.height / CGFloat(entry.lines.count))
+                    .frame(height: (proxy.size.height - CGFloat(numberOfRows - 1) * spacing) / CGFloat(numberOfRows) )
                     .frame(maxWidth: .infinity)
                     .background(line.color)
                     .foregroundColor(line.foregroundColor)
                 }
+                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .mask(ContainerRelativeShape().fill())
+        .padding(spacing)
     }
 }
 
