@@ -40,18 +40,22 @@ struct LinesProvider: TimelineProvider {
     }
 }
 
+extension Image {
+    static let unknown = Image(systemName: "questionmark.diamond.fill")
+}
+
 struct LinesView: View {
     var entry: LinesProvider.Entry
 
     var body: some View {
         GeometryReader { proxy in
-            VStack {
+            VStack(spacing: 0) {
                 ForEach(entry.lines) { line in
 
                     HStack {
                         Text(line.name)
-                        Spacer()
-                        Text(line.statuses.first?.severity.description ?? "")
+                        Spacer(minLength: 0)
+                        (line.statuses.first?.severity.icon ?? .unknown)
                     }
                     .padding(.horizontal)
                     .frame(height: proxy.size.height / CGFloat(entry.lines.count))

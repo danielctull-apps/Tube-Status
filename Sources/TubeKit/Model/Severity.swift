@@ -9,7 +9,7 @@ public struct Severity: CustomStringConvertible, Equatable, Hashable, RawReprese
 }
 
 extension Severity {
-    static let goodService = Severity(rawValue: "Good Service")
-    static let noIssues = Severity(rawValue: "No Issues")
-    static let information = Severity(rawValue: "Information")
+    public static let goodService = Severity(rawValue: "Good Service")
+    public static let noIssues = Severity(rawValue: "No Issues")
+    public static let information = Severity(rawValue: "Information")
 }
