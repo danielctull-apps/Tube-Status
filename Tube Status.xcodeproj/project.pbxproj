@@ -17,6 +17,8 @@
 		241FA10024A8E93400D78454 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241FA0E724A8E91D00D78454 /* SwiftUI.framework */; };
 		241FA10C24A8E93500D78454 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 241FA0FE24A8E93400D78454 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		241FA11124A8EB9D00D78454 /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 241FA0E424A8E91D00D78454 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		247F2DBF24A8F66700CA45DA /* TubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 247F2DBE24A8F66700CA45DA /* TubeKit */; };
+		247F2DC124A8F66700CA45DA /* TubeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 247F2DC024A8F66700CA45DA /* TubeUI */; };
 		24924FC624A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
 		24924FC724A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
 		24924FCA24A8C363005AF2BC /* TubeStatus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* TubeStatus.xcassets */; };
@@ -150,6 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247F2DC124A8F66700CA45DA /* TubeUI in Frameworks */,
+				247F2DBF24A8F66700CA45DA /* TubeKit in Frameworks */,
 				241FA10024A8E93400D78454 /* SwiftUI.framework in Frameworks */,
 				241FA0FF24A8E93400D78454 /* WidgetKit.framework in Frameworks */,
 			);
@@ -363,6 +367,10 @@
 			dependencies = (
 			);
 			name = "Widget iOS";
+			packageProductDependencies = (
+				247F2DBE24A8F66700CA45DA /* TubeKit */,
+				247F2DC024A8F66700CA45DA /* TubeUI */,
+			);
 			productName = "Widget iOSExtension";
 			productReference = 241FA0FE24A8E93400D78454 /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -704,6 +712,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		247F2DBE24A8F66700CA45DA /* TubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TubeKit;
+		};
+		247F2DC024A8F66700CA45DA /* TubeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TubeUI;
+		};
 		24924FD624A8C538005AF2BC /* TubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TubeKit;

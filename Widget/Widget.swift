@@ -1,46 +1,67 @@
 
 import Intents
+import Resourceful
 import SwiftUI
+import TubeKit
+import TubeUI
 import WidgetKit
 
-struct Provider: IntentTimelineProvider {
-    public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
-    }
+struct LinesEntry: TimelineEntry {
+    let date: Date
+    let lines: [Line]
+}
 
-    public func timeline(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+struct LinesProvider: TimelineProvider {
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+    func snapshot(with context: Context, completion: @escaping (LinesEntry) -> ()) {
+
+        URLSession.shared.fetch(.statuses) { result in
+            switch result {
+            case .success(let lines):
+                completion(LinesEntry(date: Date(), lines: lines))
+            case .failure:
+                return
+            }
         }
+    }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+    func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+
+        let expiry = Date(timeIntervalSinceNow: 300)
+        URLSession.shared.fetch(.statuses) { result in
+            switch result {
+            case .success(let lines):
+                let entry = LinesEntry(date: Date(), lines: lines)
+                completion(Timeline(entries: [entry], policy: .after(expiry)))
+            case .failure:
+                completion(Timeline(entries: [], policy: .after(expiry)))
+            }
+        }
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    public let date: Date
-    public let configuration: ConfigurationIntent
-}
-
-struct PlaceholderView : View {
-    var body: some View {
-        Text("Placeholder View")
-    }
-}
-
-struct WidgetEntryView : View {
-    var entry: Provider.Entry
+struct LinesView: View {
+    var entry: LinesProvider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        GeometryReader { proxy in
+            VStack {
+                ForEach(entry.lines) { line in
+
+                    HStack {
+                        Text(line.name)
+                        Spacer()
+                        Text(line.statuses.first?.severity.description ?? "")
+                    }
+                    .padding(.horizontal)
+                    .frame(height: proxy.size.height / CGFloat(entry.lines.count))
+                    .frame(maxWidth: .infinity)
+                    .background(line.color)
+                    .foregroundColor(line.foregroundColor)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
@@ -49,10 +70,12 @@ struct TubeWidget: Widget {
     private let kind: String = "Widget"
 
     public var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(), placeholder: PlaceholderView()) { entry in
-            WidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        StaticConfiguration(kind: "Lines",
+                            provider: LinesProvider(),
+                            placeholder: EmptyView(),
+                            content: LinesView.init)
+            .configurationDisplayName("Lines")
+            .description("This is an example widget.")
+            .supportedFamilies([.systemLarge])
     }
 }
