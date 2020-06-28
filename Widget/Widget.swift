@@ -45,11 +45,18 @@ extension Image {
 }
 
 struct LinesView: View {
-    var entry: LinesProvider.Entry
-    let columns = Array(repeating: GridItem(.flexible()), count: 2)
 
-    var numberOfRows: Int { Int(ceil(CGFloat(entry.lines.count) / CGFloat(columns.count))) }
-    let spacing = CGFloat(2)
+    let entry: LinesProvider.Entry
+    private let spacing = CGFloat(2)
+
+    private var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: spacing),
+              count: 2)
+    }
+
+    private var numberOfRows: Int {
+        Int(ceil(CGFloat(entry.lines.count) / CGFloat(columns.count)))
+    }
 
     var body: some View {
         GeometryReader { proxy in
