@@ -2,7 +2,14 @@
 import Tagged
 
 public struct Status {
-    public typealias ID = Tagged<Self, Int>
+
+    public struct ID: Equatable, Hashable {
+        // It turns out the id for the status is localised to that line, so a
+        // truly unique ID needs to include the line ID.
+        let value: Int
+        let line: Line.ID
+    }
+
     public let id: ID
     public let line: Line.ID
     public let severity: Severity
@@ -21,8 +28,10 @@ extension Status {
             return nil
         }
 
-        self.init(id: ID(rawValue: id),
-                  line: Line.ID(rawValue: lineId),
+        let line = Line.ID(rawValue: lineId)
+
+        self.init(id: ID(value: id, line: line),
+                  line: line,
                   severity: Severity(rawValue: statusSeverityDescriprion),
                   reason: reason)
     }
