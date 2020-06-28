@@ -5,9 +5,8 @@ import PackageDescription
 let package = Package(
     name: "Tube Status",
     products: [
-        .library(
-            name: "TubeKit",
-            targets: ["TubeKit"]),
+        .library(name: "TubeKit", targets: ["TubeKit"]),
+        .library(name: "TubeUI", targets: ["TubeUI"]),
     ],
     dependencies: [
         .package(url: "https://github.com/danielctull/Resourceful", from: "1.0.0"),
@@ -30,6 +29,14 @@ let package = Package(
             ],
             resources: [
                 .copy("Responses"),
+            ]),
+
+        .target(
+            name: "TubeUI",
+            dependencies: [
+                "Resourceful",
+                "Tagged",
+                "TubeKit",
             ]),
     ]
 )
