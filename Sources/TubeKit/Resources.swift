@@ -13,7 +13,7 @@ extension Resource where Value == [Line] {
         let url = URL.tfl
             .appendingPathComponent("line")
             .appendingPathComponent("mode")
-            .appendingPathComponent("tube")
+            .appendingPathComponent("tube,dlr")
             .appendingPathComponent("status")
 
         return Resource(request: URLRequest(url: url)) {
