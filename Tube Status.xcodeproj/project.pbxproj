@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24924FC624A8C363005AF2BC /* Tube_StatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* Tube_StatusApp.swift */; };
-		24924FC724A8C363005AF2BC /* Tube_StatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* Tube_StatusApp.swift */; };
+		24924FC624A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
+		24924FC724A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
 		24924FC824A8C363005AF2BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB424A8C361005AF2BC /* ContentView.swift */; };
 		24924FC924A8C363005AF2BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB424A8C361005AF2BC /* ContentView.swift */; };
-		24924FCA24A8C363005AF2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* Assets.xcassets */; };
-		24924FCB24A8C363005AF2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* Assets.xcassets */; };
+		24924FCA24A8C363005AF2BC /* TubeStatus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* TubeStatus.xcassets */; };
+		24924FCB24A8C363005AF2BC /* TubeStatus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* TubeStatus.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24924FB324A8C361005AF2BC /* Tube_StatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube_StatusApp.swift; sourceTree = "<group>"; };
+		24924FB324A8C361005AF2BC /* TubeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatus.swift; sourceTree = "<group>"; };
 		24924FB424A8C361005AF2BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		24924FB524A8C363005AF2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24924FB524A8C363005AF2BC /* TubeStatus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TubeStatus.xcassets; sourceTree = "<group>"; };
 		24924FBA24A8C363005AF2BC /* Tube Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tube Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24924FBD24A8C363005AF2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24924FBD24A8C363005AF2BC /* iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.plist; sourceTree = "<group>"; };
 		24924FC224A8C363005AF2BC /* Tube Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tube Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24924FC424A8C363005AF2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24924FC424A8C363005AF2BC /* macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = macOS.plist; sourceTree = "<group>"; };
 		24924FC524A8C363005AF2BC /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,21 +47,22 @@
 		24924FAD24A8C361005AF2BC = {
 			isa = PBXGroup;
 			children = (
-				24924FB224A8C361005AF2BC /* Shared */,
-				24924FBC24A8C363005AF2BC /* iOS */,
-				24924FC324A8C363005AF2BC /* macOS */,
+				24924FB224A8C361005AF2BC /* App */,
 				24924FBB24A8C363005AF2BC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		24924FB224A8C361005AF2BC /* Shared */ = {
+		24924FB224A8C361005AF2BC /* App */ = {
 			isa = PBXGroup;
 			children = (
-				24924FB324A8C361005AF2BC /* Tube_StatusApp.swift */,
+				24924FB324A8C361005AF2BC /* TubeStatus.swift */,
 				24924FB424A8C361005AF2BC /* ContentView.swift */,
-				24924FB524A8C363005AF2BC /* Assets.xcassets */,
+				24924FB524A8C363005AF2BC /* TubeStatus.xcassets */,
+				24924FBD24A8C363005AF2BC /* iOS.plist */,
+				24924FC424A8C363005AF2BC /* macOS.plist */,
+				24924FC524A8C363005AF2BC /* macOS.entitlements */,
 			);
-			path = Shared;
+			path = App;
 			sourceTree = "<group>";
 		};
 		24924FBB24A8C363005AF2BC /* Products */ = {
@@ -71,23 +72,6 @@
 				24924FC224A8C363005AF2BC /* Tube Status.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		24924FBC24A8C363005AF2BC /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				24924FBD24A8C363005AF2BC /* Info.plist */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		24924FC324A8C363005AF2BC /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				24924FC424A8C363005AF2BC /* Info.plist */,
-				24924FC524A8C363005AF2BC /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24924FCA24A8C363005AF2BC /* Assets.xcassets in Resources */,
+				24924FCA24A8C363005AF2BC /* TubeStatus.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24924FCB24A8C363005AF2BC /* Assets.xcassets in Resources */,
+				24924FCB24A8C363005AF2BC /* TubeStatus.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24924FC824A8C363005AF2BC /* ContentView.swift in Sources */,
-				24924FC624A8C363005AF2BC /* Tube_StatusApp.swift in Sources */,
+				24924FC624A8C363005AF2BC /* TubeStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24924FC924A8C363005AF2BC /* ContentView.swift in Sources */,
-				24924FC724A8C363005AF2BC /* Tube_StatusApp.swift in Sources */,
+				24924FC724A8C363005AF2BC /* TubeStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +307,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2M757K4LG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = App/iOS.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,7 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2M757K4LG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = App/iOS.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -365,13 +349,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B2M757K4LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = App/macOS.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -389,13 +373,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B2M757K4LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = App/macOS.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
