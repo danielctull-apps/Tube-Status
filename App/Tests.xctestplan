@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "964FDD4A-8583-41CB-AD75-DDC41E7CE5FD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "TubeKitTests",
+        "name" : "TubeKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

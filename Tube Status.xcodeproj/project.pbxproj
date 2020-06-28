@@ -27,6 +27,7 @@
 		24924FC424A8C363005AF2BC /* macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = macOS.plist; sourceTree = "<group>"; };
 		24924FC524A8C363005AF2BC /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		24924FD424A8C4DB005AF2BC /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
+		24924FDA24A8D1EE005AF2BC /* Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 				24924FBD24A8C363005AF2BC /* iOS.plist */,
 				24924FC524A8C363005AF2BC /* macOS.entitlements */,
 				24924FC424A8C363005AF2BC /* macOS.plist */,
+				24924FDA24A8D1EE005AF2BC /* Tests.xctestplan */,
 				24924FB324A8C361005AF2BC /* TubeStatus.swift */,
 				24924FB524A8C363005AF2BC /* TubeStatus.xcassets */,
 			);

@@ -10,12 +10,26 @@ let package = Package(
             targets: ["TubeKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/danielctull/Resourceful", from: "1.0.0"),
+        .package(name: "Tagged", url: "https://github.com/pointfreeco/swift-tagged", from: "0.5.0"),
     ],
     targets: [
+
         .target(
-            name: "TubeKit"),
+            name: "TubeKit",
+            dependencies: [
+                "Resourceful",
+                "Tagged",
+            ]),
+
         .testTarget(
             name: "TubeKitTests",
-            dependencies: ["TubeKit"]),
+            dependencies: [
+                "Resourceful",
+                "TubeKit",
+            ],
+            resources: [
+                .copy("Responses"),
+            ]),
     ]
 )

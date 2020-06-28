@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Resourceful",
+        "repositoryURL": "https://github.com/danielctull/Resourceful",
+        "state": {
+          "branch": null,
+          "revision": "2d1aeeeac539c9133bb326fd29f57ce8e592f508",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Tagged",
+        "repositoryURL": "https://github.com/pointfreeco/swift-tagged",
+        "state": {
+          "branch": null,
+          "revision": "592e1eb4255c571ebffc29955011e352217501b4",
+          "version": "0.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
