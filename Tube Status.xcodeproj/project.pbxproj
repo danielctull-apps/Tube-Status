@@ -9,17 +9,16 @@
 /* Begin PBXBuildFile section */
 		24924FC624A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
 		24924FC724A8C363005AF2BC /* TubeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB324A8C361005AF2BC /* TubeStatus.swift */; };
-		24924FC824A8C363005AF2BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB424A8C361005AF2BC /* ContentView.swift */; };
-		24924FC924A8C363005AF2BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24924FB424A8C361005AF2BC /* ContentView.swift */; };
 		24924FCA24A8C363005AF2BC /* TubeStatus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* TubeStatus.xcassets */; };
 		24924FCB24A8C363005AF2BC /* TubeStatus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24924FB524A8C363005AF2BC /* TubeStatus.xcassets */; };
 		24924FD724A8C538005AF2BC /* TubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 24924FD624A8C538005AF2BC /* TubeKit */; };
 		24924FD924A8C53F005AF2BC /* TubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 24924FD824A8C53F005AF2BC /* TubeKit */; };
+		24924FDC24A8DE98005AF2BC /* TubeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 24924FDB24A8DE98005AF2BC /* TubeUI */; };
+		24924FDE24A8DE9D005AF2BC /* TubeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 24924FDD24A8DE9D005AF2BC /* TubeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		24924FB324A8C361005AF2BC /* TubeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatus.swift; sourceTree = "<group>"; };
-		24924FB424A8C361005AF2BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24924FB524A8C363005AF2BC /* TubeStatus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TubeStatus.xcassets; sourceTree = "<group>"; };
 		24924FBA24A8C363005AF2BC /* Tube Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tube Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24924FBD24A8C363005AF2BC /* iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.plist; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24924FDE24A8DE9D005AF2BC /* TubeUI in Frameworks */,
 				24924FD724A8C538005AF2BC /* TubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24924FDC24A8DE98005AF2BC /* TubeUI in Frameworks */,
 				24924FD924A8C53F005AF2BC /* TubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +64,6 @@
 		24924FB224A8C361005AF2BC /* App */ = {
 			isa = PBXGroup;
 			children = (
-				24924FB424A8C361005AF2BC /* ContentView.swift */,
 				24924FBD24A8C363005AF2BC /* iOS.plist */,
 				24924FC524A8C363005AF2BC /* macOS.entitlements */,
 				24924FC424A8C363005AF2BC /* macOS.plist */,
@@ -108,6 +108,7 @@
 			name = iOS;
 			packageProductDependencies = (
 				24924FD624A8C538005AF2BC /* TubeKit */,
+				24924FDD24A8DE9D005AF2BC /* TubeUI */,
 			);
 			productName = iOS;
 			productReference = 24924FBA24A8C363005AF2BC /* Tube Status.app */;
@@ -128,6 +129,7 @@
 			name = macOS;
 			packageProductDependencies = (
 				24924FD824A8C53F005AF2BC /* TubeKit */,
+				24924FDB24A8DE98005AF2BC /* TubeUI */,
 			);
 			productName = macOS;
 			productReference = 24924FC224A8C363005AF2BC /* Tube Status.app */;
@@ -193,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24924FC824A8C363005AF2BC /* ContentView.swift in Sources */,
 				24924FC624A8C363005AF2BC /* TubeStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24924FC924A8C363005AF2BC /* ContentView.swift in Sources */,
 				24924FC724A8C363005AF2BC /* TubeStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +382,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.Tube-Status";
 				PRODUCT_NAME = "Tube Status";
 				SDKROOT = macosx;
@@ -406,7 +406,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.Tube-Status";
 				PRODUCT_NAME = "Tube Status";
 				SDKROOT = macosx;
@@ -454,6 +454,14 @@
 		24924FD824A8C53F005AF2BC /* TubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TubeKit;
+		};
+		24924FDB24A8DE98005AF2BC /* TubeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TubeUI;
+		};
+		24924FDD24A8DE9D005AF2BC /* TubeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TubeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

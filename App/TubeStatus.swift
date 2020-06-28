@@ -1,11 +1,13 @@
 
 import SwiftUI
+import TubeUI
 
 @main
 struct TubeStatus: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AllLines()
+                .environment(\.urlSession, URLSession.shared)
         }
     }
 }
